@@ -30,6 +30,7 @@ public class RpcInitBootstrap implements ImportBeanDefinitionRegistrar {
         if (needServer) {
             TcpServer tcpServer = new NettyTcpServer();
             Integer serverPort = RpcApplication.getRpcConfig().getServerPort();
+            //线程记得start
             new Thread(() -> tcpServer.doStart(serverPort)).start();
         } else {
             log.info("不启动server..");

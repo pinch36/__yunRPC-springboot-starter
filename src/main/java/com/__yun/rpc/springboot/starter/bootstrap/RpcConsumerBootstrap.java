@@ -21,6 +21,7 @@ public class RpcConsumerBootstrap implements BeanPostProcessor {
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
         Class<?> beanClass = bean.getClass();
+        //拿到所有声明的属性
         Field[] declaredFields = beanClass.getDeclaredFields();
         for (Field field : declaredFields) {
             RpcReference rpcReference = field.getAnnotation(RpcReference.class);

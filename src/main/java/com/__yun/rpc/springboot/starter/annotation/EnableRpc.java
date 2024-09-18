@@ -19,7 +19,7 @@ import java.lang.annotation.Target;
  */
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
-//启动类需要有入口被spring管理
+//启动类需要有入口被spring管理， spring通过该注解注入启动类
 @Import({RpcConsumerBootstrap.class, RpcProviderBootstrap.class, RpcInitBootstrap.class})
 public @interface EnableRpc {
     boolean needServer() default true;
